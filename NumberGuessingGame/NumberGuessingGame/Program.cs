@@ -35,39 +35,42 @@ namespace NumberGuessingGame
 
 
         static void Main(string[] args)
+        {
+            Console.WriteLine("Let's play a guessing game! The higher your score, the worse you did!");
+            Console.WriteLine("Start off by picking a value to pick from");
+
+            int max = GetIntegerFromUser("What max range would you like?");
+
+            Random rnd = new Random();
+            int secretNumber = rnd.Next(1, max + 1);
+
+            int guessNum = 0;
+            int input = 0;
+            do
             {
-                Console.WriteLine("Let's play a guessing game! The higher your score, the worse you did!");
-                Console.WriteLine("Start off by picking a value to pick from");
+                guessNum = GetIntegerFromUser("Guess a Number Mate");
 
-                int max = GetIntegerFromUser("What max range would you like?");
-
-                Random rnd = new Random();
-                int secretNumber = rnd.Next(1, max + 1);
-
-                int guessNum = 0;
-                do
+                if (guessNum < secretNumber)
                 {
-                    guessNum = GetIntegerFromUser("Guess a Number Mate");
-                    
-                    if (guessNum < secretNumber)
-                    {
-                        Console.WriteLine("This number that i am thinking is higher mate, Try Again!");
-                        
-                    }
-                    else if (guessNum > secretNumber)
-                    {
-                        Console.WriteLine("This number that i am thinking is lower mate, Try Again!");
-                        
-                    }
+                    Console.WriteLine("This number that i am thinking is higher mate, Try Again!");
+                    input++;
+                   
 
-                    else
-                    {
-                        Console.WriteLine("Correct Bro You Have Special Powers!");
-                    }
+                }
+                else if (guessNum > secretNumber)
+                {
+                    Console.WriteLine("This number that i am thinking is lower mate, Try Again!");
+                    input++;
 
+                }
 
+                else
+                {
+                    Console.WriteLine("Correct Bro You Have Special Powers!");
+                    Console.WriteLine($"It took you {input} tries");
+                }
 
-
+                
 
 
 
@@ -75,9 +78,20 @@ namespace NumberGuessingGame
 
 
 
-                } while (guessNum != secretNumber);
-            }
+
+
+
+
+            } while (guessNum != secretNumber);
+
+            
+
+
+
+
+
         }
+    }
 }
 
 
