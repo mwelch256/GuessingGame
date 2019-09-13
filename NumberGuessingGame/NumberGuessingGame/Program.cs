@@ -52,12 +52,12 @@ namespace NumberGuessingGame
                     if (guessNum < secretNumber)
                     {
                         Console.WriteLine("This number that i am thinking is higher mate, Try Again!");
-                        continue;
+                        
                     }
                     else if (guessNum > secretNumber)
                     {
                         Console.WriteLine("This number that i am thinking is lower mate, Try Again!");
-                        continue;
+                        
                     }
 
                     else
